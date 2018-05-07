@@ -1,0 +1,54 @@
+---
+- name: Server Config LAMP
+  hosts: "web"
+  become: true
+  become_user: root
+  roles:
+    
+    - role: kbrebanov.selinux
+      selinux_state: disabled
+
+    - role: geerlingguy.repo-remi
+    - role: geerlingguy.repo-epel
+     
+    - role: geerlingguy.firewall
+    - role: geerlingguy.apache
+    - role: geerlingguy.php-versions
+    - role: geerlingguy.php
+    - role: geerlingguy.blackfire
+    - role: geerlingguy.apache-php-fpm
+    - role: geerlingguy.composer
+    - role: geerlingguy.mysql
+    - role: geerlingguy.php-mysql
+    - role: geerlingguy.nodejs
+    - role: geerlingguy.git
+
+    - role: geerlingguy.ntp
+      ntp_timezone: Europe/Madrid
+    
+  tasks:
+    - name: Install latest version of "mongodb" and "install-recommends"
+      yum:
+        name: mongodb
+        state: latest
+
+    - name: Install latest version of "php-zip" and "recommends"
+      yum:
+        name: php-zip
+        state: latest
+
+    - name: Install latest version of "VIM" and "recommends"
+      yum:
+        name: vim
+        state: latest
+
+    - name: Install latest version of "curl" and "recommends"
+      yum:
+        name: curl
+        state: latest
+
+    - name: Create .my.cnf MySQL
+      template: src=files/my.cnf dest=/home/vagrant/.my.cnf
+
+    - name: Create phpinfo(); on info.php
+      template: src=templates/phpinfo.php dest=/var/www/html/index.php
