@@ -1,2 +1,4 @@
 /vagrant/.vagrant/
-/ansible/playbook.retry
+/ansible/web.retry
+/ansible/services.retry
+/sites/cgi-bin/
