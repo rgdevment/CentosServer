@@ -47,6 +47,12 @@
         name: curl
         state: latest
 
+    - name: Configure VirtualHost apache
+      template: src=templates/vhosts.conf.base dest=/etc/httpd/conf.d/vhosts.conf
+
+    - name: Restart Apache
+      command: "systemctl restart httpd.service"
+
     - name: Create .my.cnf MySQL
       template: src=files/my.cnf dest=/home/vagrant/.my.cnf
 

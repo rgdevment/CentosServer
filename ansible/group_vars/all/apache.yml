@@ -1,6 +1,8 @@
 apache_allow_override: "All"
 apache_options: "-Indexes +FollowSymLinks"
 
+apache_remove_default_vhost: true
+
 apache_mods_enabled:
   - ldap.conf
   - ldap.load
@@ -10,47 +12,9 @@ apache_mods_enabled:
   - rewrite_module
 apache_mods_disabled: []
 
-apache_remove_default_vhost: true
-apache_create_vhosts: true
+apache_create_vhosts: false
 apache_global_vhost_settings: |
   DirectoryIndex index.php index.html
-  <VirtualHost 192.168.50.10:80>
-
-    ServerName www.local.dev
-    ServerAlias local.dev
-    DocumentRoot /var/www/html
-    ErrorLog /var/www/log/local-error.log
-    CustomLog /var/www/log/local-requests.log combined
-    <Directory "/var/www/html">
-      Options FollowSymlinks
-      Options -Indexes
-      AllowOverride All
-      Require all granted
-      RewriteEngine On
-      RewriteCond %{REQUEST_FILENAME} !-f
-      RewriteCond %{REQUEST_FILENAME} !-d
-      RewriteRule ^(.*)$ index.php/$1 [L]
-    </Directory>
-  </VirtualHost>
-
-  <VirtualHost 192.168.50.20:80>
-
-    ServerName www.symfony.dev
-    ServerAlias symfony.dev
-    DocumentRoot /var/www/symfony/public
-    ErrorLog /var/www/log/symfony-error.log
-    CustomLog /var/www/log/symfony-requests.log combined
-    <Directory "/var/www/symfony/public">
-      Options FollowSymlinks
-      Options -Indexes
-      AllowOverride All
-      Require all granted
-      RewriteEngine On
-      RewriteCond %{REQUEST_FILENAME} !-f
-      RewriteCond %{REQUEST_FILENAME} !-d
-      RewriteRule ^(.*)$ index.php/$1 [L]
-    </Directory>
-  </VirtualHost>
 
 #apache_vhosts:
 #  - servername: "www.symfony.example"
