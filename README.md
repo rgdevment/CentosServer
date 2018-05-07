@@ -34,7 +34,7 @@ The virtualhost 192.168.50.20 incluye and demo of symfony skeleton installation,
 
 The virtualhost you can modified on _ansible/group\_vars/all/apache.yml_
 
-If you need add more virtual host, you can add new ip con _Vagrantfile_ and add new virtualhost on _apache.yml_.
+If you need add more virtual host, you can add new ip con _Vagrantfile_ and add new virtualhost on _/ansible/templates/vhost.conf.base_
 
 # VM2 - Services Machine
 
