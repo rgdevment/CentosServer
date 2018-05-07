@@ -31,8 +31,7 @@ This machine configure whit multiple virtualhost, is perfect for symfony install
 All virtualhost you can access from ip (192.168.50.xx) and the public folder on sites directory.
 
 The virtualhost 192.168.50.20 incluye and demo of symfony skeleton installation, you only need run composer update.
-
-The virtualhost you can modified on _ansible/group\_vars/all/apache.yml_
+for run test symfony on 192.168.50.20 run *composer update*.
 
 If you need add more virtual host, you can add new ip con _Vagrantfile_ and add new virtualhost on _/ansible/templates/vhost.conf.base_
 
