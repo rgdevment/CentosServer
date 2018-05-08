@@ -35,6 +35,8 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
     
     webserver.vm.provision :shell, path: "provision/provision.sh" #Install Ansible
     webserver.vm.provision :shell, path: "provision/web.sh" #Install roles and execute ansible
+
+    webserver.vm.provision "shell", inline: "sudo apachectl start", run: "always"
   end
 
   #ElasticSearch, Kibana y Redis
@@ -60,5 +62,8 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
     
     services.vm.provision :shell, path: "provision/provision.sh" #Install Ansible and roles
     services.vm.provision :shell, path: "provision/services.sh" #Install roles and execute ansible
+
+    services.vm.provision "shell", inline: "sudo /sbin/chkconfig --add elasticsearch", run: "always"
+    services.vm.provision "shell", inline: "sudo service elasticsearch start", run: "always"
   end
 end
