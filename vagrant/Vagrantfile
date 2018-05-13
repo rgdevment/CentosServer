@@ -23,10 +23,16 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
     webserver.vm.network "forwarded_port", guest: 443, host: 8081 #ssl
     webserver.vm.network "forwarded_port", guest: 3306, host: 8082 #MySQL
 
-    webserver.vm.synced_folder "../ansible", "/ansible"
-    webserver.vm.synced_folder "../shared", "/shared"
+    webserver.vm.synced_folder "../ansible", "/ansible",
+        id: "ansible-folder", 
+        :nfs => true
+
+    webserver.vm.synced_folder "../shared", "/shared",
+        id: "shared-folder", 
+        :nfs => true
+
     webserver.vm.synced_folder "../sites", "/var/www", 
-        id: "vagrant", 
+        id: "sites-folder", 
         :nfs => true, 
         :mount_options => ['rw', 'vers=3', 'tcp', 'fsc', 'actimeo=2']
 
@@ -55,8 +61,13 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
     services.vm.network "forwarded_port", guest: 15672, host: 15672 #Rabbit
     services.vm.network "forwarded_port", guest: 6379, host: 6379 #Redis
 
-    services.vm.synced_folder "../ansible", "/ansible"
-    services.vm.synced_folder "../shared", "/shared"
+    services.vm.synced_folder "../ansible", "/ansible",
+        id: "ansible-folder-services", 
+        :nfs => true
+
+    services.vm.synced_folder "../shared", "/shared",
+        id: "shared-folder-services", 
+        :nfs => true
 
     services.vm.network "private_network", ip: "192.168.50.100" #Services
     
