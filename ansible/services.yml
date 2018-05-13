@@ -17,7 +17,7 @@
     - role: geerlingguy.nodejs
     - role: geerlingguy.git
     - role: DavidWittman.redis
-    - role: geerlingguy.rabbitmq
+    - role: MarioDevment.rabbitmq
     - role: MarioDevment.java8
     - role: MarioDevment.elasticsearch
     - role: MarioDevment.kibana
