@@ -15,7 +15,6 @@ The virtualhost 192.168.50.20 incluye and demo of symfony skeleton installation,
     cd /var/www/symfony 
     composer update
 
-for run test symfony on 192.168.50.20 run *composer update*.
 
 # VM1 - Web Server Machine
 
