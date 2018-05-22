@@ -14,8 +14,6 @@
     - role: geerlingguy.repo-epel
 
     - role: geerlingguy.firewall
-    - role: geerlingguy.nodejs
-    - role: geerlingguy.git
     - role: DavidWittman.redis
     - role: MarioDevment.rabbitmq
     - role: MarioDevment.java8
