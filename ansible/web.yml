@@ -33,6 +33,7 @@
     - role: geerlingguy.php
     - role: geerlingguy.blackfire
     - role: geerlingguy.apache-php-fpm
+    - role: geerlingguy.composer
     - role: geerlingguy.mysql
     - role: geerlingguy.php-mysql
     - role: geerlingguy.nodejs
@@ -60,6 +61,11 @@
     - name: Install latest version of "curl" and "recommends"
       yum:
         name: curl
+        state: latest
+    
+    - name: Install latest version of "wget" and "recommends"
+      yum:
+        name: wget
         state: latest
 
     - name: Configure VirtualHost apache
