@@ -3,6 +3,7 @@ echo "|  Descargando roles de Ansible-Galaxy   |"
 echo "******************************************"
 
 sudo mkdir -p /etc/ansible/roles
+sudo mkdir -p /opt/logstash
 
 roles_list[0]='geerlingguy.ntp,1.5.2'
 roles_list[1]='geerlingguy.firewall,2.3.0'
@@ -12,11 +13,11 @@ roles_list[4]='geerlingguy.repo-remi,1.2.0'
 roles_list[5]='geerlingguy.repo-epel,1.2.2'
 roles_list[6]='kbrebanov.selinux'
 roles_list[7]='DavidWittman.redis,1.2.5'
-roles_list[8]='geerlingguy.java,1.7.7'
-roles_list[9]='MarioDevment.rabbitmq'
-roles_list[10]='MarioDevment.java8'
-roles_list[11]='MarioDevment.elasticsearch,1.1.5'
-roles_list[12]='MarioDevment.kibana,1.1.4'
+roles_list[8]='MarioDevment.rabbitmq'
+roles_list[9]='MarioDevment.java8'
+roles_list[10]='MarioDevment.elasticsearch,1.1.5'
+roles_list[11]='MarioDevment.kibana,1.1.4'
+roles_list[12]='geerlingguy.logstash,3.0.1'
 
 sudo mkdir -p /etc/ansible/roles
 for role_and_version in "${roles_list[@]}"
