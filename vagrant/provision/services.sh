@@ -33,6 +33,9 @@ do
     fi
 done
 
+cd /opt/
+sudo mkdir logstash
+
 # Execute Ansible
 echo "-> Execute Ansible"
 sudo ansible-playbook /ansible/services.yml -i /ansible/inventories/hosts --connection=local

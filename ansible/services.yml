@@ -19,7 +19,8 @@
     - role: MarioDevment.java8
     - role: MarioDevment.elasticsearch
     - role: MarioDevment.kibana
-    - role: geerlingguy.logstash
+    - role: logstash
+    
     - role: geerlingguy.ntp
       ntp_timezone: Europe/Madrid
     
