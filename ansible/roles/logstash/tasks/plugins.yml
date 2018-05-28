@@ -1,4 +1,10 @@
 ---
+
+- name: Create Folder
+  file: 
+    path: /opt/logstash
+    state: directory
+
 - name: Get list of installed plugins.
   command: /usr/share/logstash/bin/logstash-plugin list
     chdir=/opt/logstash
