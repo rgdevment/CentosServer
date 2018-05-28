@@ -79,7 +79,3 @@
 
     - name: Create phpinfo(); on info.php
       template: src=templates/phpinfo.php dest=/var/www/html/index.php
-
-    - name: Install Yarn
-      command: curl -o- -L https://yarnpkg.com/install.sh | bash
-      ignore_errors: yes
