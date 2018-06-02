@@ -4,7 +4,7 @@
   become: true
   become_user: root
   vars:
-    - redis_bind: 127.0.0.1
+    - redis_bind: 0.0.0.0
   roles:
 
     - role: kbrebanov.selinux
