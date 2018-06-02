@@ -38,6 +38,7 @@
     - role: geerlingguy.php-mysql
     - role: geerlingguy.nodejs
     - role: geerlingguy.git
+    - role: MarioDevment.yarn
 
     - role: geerlingguy.ntp
       ntp_timezone: Europe/Madrid

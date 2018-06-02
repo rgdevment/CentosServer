@@ -20,6 +20,7 @@ roles_list[12]='geerlingguy.blackfire,1.0.0'
 roles_list[13]='geerlingguy.repo-remi,1.2.0'
 roles_list[14]='geerlingguy.repo-epel,1.2.2'
 roles_list[15]='kbrebanov.selinux'
+roles_list[16]='MarioDevment.yarn'
 
 sudo mkdir -p /etc/ansible/roles
 for role_and_version in "${roles_list[@]}"
